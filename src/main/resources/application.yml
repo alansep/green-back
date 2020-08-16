@@ -1,0 +1,8 @@
+spring:
+  jpa:
+    database: MYSQL
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://green-db:3306/green?useSSL=false&serverTimezone=UTC
+    username: green
+    password: gpassword

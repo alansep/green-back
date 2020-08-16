@@ -1,0 +1,29 @@
+version: '3'
+services:
+  green-db:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    network_mode: bridge
+    environment:
+      MYSQL_DATABASE: green
+      MYSQL_USER: green
+      MYSQL_PASSWORD: gpassword
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+  green-server:
+    image: green-server
+    restart: 'no'
+    network_mode: bridge
+    ports:
+    - 8080:8080
+    expose:
+      - 8080
+    depends_on:
+      - green-db
+    links:
+      - green-db
