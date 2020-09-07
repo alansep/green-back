@@ -1,0 +1,10 @@
+FROM mysql:5.7.31
+
+ENV MYSQL_ROOT_PASSWORD = ruterute
+ENV MYSQL_DATABASE = green
+ENV MYSQL_USER = green
+ENV MYSQL_PASSWORD = gpassword
+
+VOLUME var/lib/mysql
+
+EXPOSE 3306
